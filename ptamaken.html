@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <link rel="stylesheet" type="text/css" href="ptamaken.css">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PTA Veranderen</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      margin-bottom: 16px;
+    }
+
+    .additional-fields {
+      margin-top: 20px;
+    }
+
+    .velden {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      align-content: stretch;
+    }
+
+    .additional-fields{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      align-content: stretch;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PTA Veranderen</h1>
+
+    <h2>Procent Eindcijfer</h2>
+    <label for="percentage">Percentage:</label>
+    <input type="text" id="percentage" name="percentage">
+
+    
+    <h2>Hulpmiddelen</h2>
+    <label for="tools">Hulpmiddelen:</label>
+    <div class="velden">
+      <div class="additional-fields" id="toolsFieldsContainer">
+        <div>
+        <label for="tool1">Veld 1:</label>
+        <input type="text" id="tool1" name="tools">
+        </div>
+        <!-- Hier worden de extra velden toegevoegd -->
+      </div>
+    </div>
+    <button type="button" onclick="addAdditionalField('toolsFieldsContainer')">Voeg Veld Toe</button>
+    <h2>Toetsen</h2>
+  <div class="velden">	
+    <form id="toetsen">
+      <div>
+          <label for="testNumber">Toetsnummer:</label>
+          <input type="text" id="testNumber" name="testNumber">
+      </div>
+      <div>
+          <label for="year">Jaar & periode:</label>
+          <input type="text" id="year" name="year">
+      </div>
+      <div>
+          <label for="weekNumber">Weeknummer:</label>
+          <input type="text" id="weekNumber" name="weekNumber">
+      </div>
+      <div>
+          <label for="subdomain">Subdomein:</label>
+          <input type="text" id="subdomain" name="subdomain">
+      </div>
+      <div>    
+          <label for="description">Stofomschrijving:</label>
+          <input type="text" id="description" name="description">
+      </div>
+      <div>    
+          <label for="examType">Afnamevorm:</label>
+          <input type="text" id="examType" name="examType">
+      </div>
+      <div>    
+          <label for="grade">Beoordeling:</label>
+          <input type="text" id="grade" name="grade">
+      </div>
+      <div>
+          <label for="time">Tijd:</label>
+          <input type="text" id="time" name="time">
+      </div>
+      <div>  
+          <label for="resit">Herkansbaar:</label>
+          <input type="text" id="resit" name="resit">
+      </div>
+      <div>    
+          <label for="weight">Weging:</label>
+          <input type="text" id="weight" name="weight">
+      </div>
+      <div>
+          <label for="tools">Hulpmiddelen:</label>
+          <input type="text" id="tools" name="tools">
+      </div>
+        </div>
+      </div>
+      
+      </form>
+
+</div>
+  <button type="button" onclick="cloneForm('toetsen')">Kopieer Formulier</button>
+    <h2>Toelichting bij anders</h2>
+    <div class="velden">
+      
+  
+      <div class="additional-fields" id="explanationFieldsContainer">
+        <div>
+          <label for="excplanation">Veld 1:</label>
+          <input type="text" id="explanation" name="explanation">
+        </div>
+        <!-- Hier worden de extra velden toegevoegd -->
+      </div>
+    </div>
+
+    <button type="button" onclick="addAdditionalField('explanationFieldsContainer')">Voeg Veld Toe</button>
+
+  <script>
+    function addAdditionalField(containerId) {
+      var container = document.getElementById(containerId);
+      var newFieldNumber = container.children.length + 1;
+
+      // Create a div to contain the label and input
+      var fieldContainer = document.createElement('div');
+
+      var label = document.createElement('label');
+      label.setAttribute('for', containerId + '_field' + newFieldNumber);
+      label.textContent = 'Veld ' + newFieldNumber + ':';
+
+      var input = document.createElement('input');
+      input.setAttribute('type', 'text');
+      input.setAttribute('id', containerId + '_field' + newFieldNumber);
+      input.setAttribute('name', containerId + '_field' + newFieldNumber);
+
+      // Append label and input to the field container
+      fieldContainer.appendChild(label);
+      fieldContainer.appendChild(input);
+
+      // Append the field container to the main container
+      container.appendChild(fieldContainer);
+    }
+
+    function showFormData(containerId) {
+      var formData = document.getElementById(containerId).elements;
+      var formDataString = '';
+
+      for (var i = 0; i < formData.length; i++) {
+        formDataString += formData[i].name + ': ' + formData[i].value + '\n';
+      }
+
+      document.getElementById(containerId + 'FormData').textContent = formDataString;
+    }
+
+    function cloneForm(containerId) {
+      var originalForm = document.getElementById(containerId);
+
+      if (!originalForm) {
+        console.error("Origineel formulier niet gevonden");
+        return;
+      }
+      
+      var clonedForm = originalForm.cloneNode(true);
+
+      // Creëer een unieke identifier voor de nieuwe kloon
+      var cloneCount = document.getElementsByClassName('clonedForm').length + 1;
+      var newId = containerId + '_clone' + cloneCount;
+      clonedForm.id = newId;
+      clonedForm.className = 'clonedForm';
+
+      // Update IDs en names voor elementen in de gekloonde formulier
+      var elements = clonedForm.elements;
+      for (var i = 0; i < elements.length; i++) {
+        var el = elements[i];
+
+        // Creëer unieke IDs en names voor de elementen
+        if (el.id) el.id = el.id + '_clone' + cloneCount;
+        if (el.name) el.name = el.name + '_clone' + cloneCount;
+
+        // Clear de waarden
+        if (el.type === 'text') {
+          el.value = '';
+        }
+      }
+
+      // Append de gekloonde formulier aan het einde van de body
+      originalForm.parentNode.insertBefore(clonedForm, originalForm.nextSibling);
+    }
+  </script>
+
+
+</body>
+</html>

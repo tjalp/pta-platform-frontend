@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PTA Platform - Mogelijkheden</title>
+  <style>
+    body {
+      background-color: #2ecc71; /* Donkergroene achtergrond */
+      color: #ffffff; /* Witte tekst */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #options-container {
+      background-color: #27ae60; /* Groene container */
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    button {
+      background-color: #219d47; /* Donkergroene knop */
+      color: #ffffff;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: #1a8341; /* Donkergroene knop bij hover */
+    }
+  </style>
+</head>
+<body>
+
+  <div id="options-container">
+    <h2>Mogelijkheden</h2>
+    <button onclick="redirectToOption('ptamaken.html')">Optie 1</button>
+    <button onclick="redirectToOption('ptamaken.html')">Optie 2</button>
+    <button onclick="redirectToOption('ptamaken.html')">Optie 3</button>
+    <!-- Voeg hier meer knoppen toe voor andere opties -->
+  </div>
+
+  <script>
+    function redirectToOption(optionPage) {
+      window.location.href = optionPage;
+    }
+  </script>
+
+</body>
+</html>
