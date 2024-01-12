@@ -126,7 +126,7 @@ input:focus, textarea:focus {
 
 .velden {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: stretch;
