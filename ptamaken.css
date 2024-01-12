@@ -144,7 +144,7 @@ input:focus, textarea:focus {
 /* Additional styling for the cloned forms */
 .clonedForm {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-items: stretch;
