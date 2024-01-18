@@ -53,16 +53,14 @@
 
   <div id="login-container">
     <h2>Welkom bij PTA Platform</h2>
-    <form action="options" method="post">
-      <label for="username">Gebruikersnaam:</label>
-      <input type="text" id="username" name="username" required>
-
-      <label for="password">Wachtwoord:</label>
-      <input type="password" id="password" name="password" required>
-
-      <button type="submit">Inloggen</button>
-    </form>
+    <h1>Login with Google</h1>
+    <button onclick="loginWithGoogle()">Login with Google</button>
   </div>
-
+  <script>
+    function loginWithGoogle() {
+        window.location.href = '/auth/google';
+    }
+  </script>
 </body>
+
 </html>
