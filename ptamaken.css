@@ -105,16 +105,6 @@ input:focus, textarea:focus {
   align-content: stretch;
 }
 
-.velden {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  align-content: stretch;
-  padding: 10px; /* Added padding */
-}
-
 /* Additional styling for the cloned forms */
 .clonedForm {
   margin-top: 20px;
