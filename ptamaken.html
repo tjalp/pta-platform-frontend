@@ -32,7 +32,7 @@
     .additional-fields {
       margin-top: 20px;
     }
-    
+
     .additional-fields{
       display: flex;
       flex-direction: row;
@@ -134,6 +134,17 @@
     <button type="button" onclick="addAdditionalField('explanationFieldsContainer')">Voeg Veld Toe</button>
 
   <script>
+    const toets = {
+      weging: 0
+      hulpmiddelen: []
+      weeknummer: 0
+      subdomein: ''
+      stofomschrijving:''
+      afnamevorm:''
+      beoordeling:''
+      tijd:0
+      herkansbaar:''
+    }
     function addAdditionalField(containerId) {
       var container = document.getElementById(containerId);
       var newFieldNumber = container.children.length + 1;
