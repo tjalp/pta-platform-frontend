@@ -113,7 +113,7 @@
       </div>
         </div>
       </div>
-      
+      <input type="submit" onclick="toetsOpslaan(this.id)" id="toetsOpslaanKnop" value="toets opslaan">
       </form>
 
 </div>
@@ -135,8 +135,8 @@
 
   <script>
     const toets = {
-      weging: 0
-      hulpmiddelen: []
+      toetsnummer: 0
+      jaar: ''
       weeknummer: 0
       subdomein: ''
       stofomschrijving:''
@@ -144,7 +144,10 @@
       beoordeling:''
       tijd:0
       herkansbaar:''
+      weging: 0
+      hulpmiddelen: []
     }
+    var toetsen = []
     function addAdditionalField(containerId) {
       var container = document.getElementById(containerId);
       var newFieldNumber = container.children.length + 1;
@@ -213,6 +216,12 @@
 
       // Append de gekloonde formulier aan het einde van de body
       originalForm.parentNode.insertBefore(clonedForm, originalForm.nextSibling);
+    }
+    function toetsOpslaan(id){
+      let parent = document.getElementById(id).parentElement.nodeName
+      var children = parentElement.querySelectorAll('*');
+      var childIds = Array.from(children).map(child => child.id);
+      toetsen += toets(getElementById(childIds[0]), getElementById(childIds[1]), getElementById(childIds[2]), getElementById(childIds[3]), getElementById(childIds[4]), getElementById(childIds[5]), getElementById(childIds[6]), getElementById(childIds[7]), getElementById(childIds[8]), getElementById(childIds[9]), getElementById(childIds[10]))
     }
   </script>
 
