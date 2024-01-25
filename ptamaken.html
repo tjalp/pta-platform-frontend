@@ -77,7 +77,7 @@
       </div>
       <div>
           <label for="weekNumber">Weeknummer:</label>
-          <input type="text" id="weekNumber" name="weekNumber">
+          <input type="number" id="weekNumber" name="weekNumber">
       </div>
       <div>
           <label for="subdomain">Subdomein:</label>
@@ -105,7 +105,7 @@
       </div>
       <div>    
           <label for="weight">Weging:</label>
-          <input type="text" id="weight" name="weight">
+          <input type="number" id="weight" name="weight">
       </div>
       <div>
           <label for="tools">Hulpmiddelen:</label>
@@ -218,25 +218,6 @@
       originalForm.parentNode.insertBefore(clonedForm, originalForm.nextSibling);
     }
 
-    function toetsOpslaan(id){
-      let parent = document.getElementById(id).parentElement.nodeName
-      var children = parentElement.querySelectorAll('*');
-      var childIds = Array.from(children).map(child => child.id);
-      toetsen += toets(getElementById(childIds[0]), getElementById(childIds[1]), getElementById(childIds[2]), getElementById(childIds[3]), getElementById(childIds[4]), getElementById(childIds[5]), getElementById(childIds[6]), getElementById(childIds[7]), getElementById(childIds[8]), getElementById(childIds[9]), getElementById(childIds[10]))
-    }
-
-    async function ptaVersturen(){
-      fetch(backendLocatie, {
-      method: 'POST',
-      headers: {
-        Content-Type': 'application/json',
-      },
-      body: JSON.stringify(dataToSend),
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error)); 
-    }
   </script>
 
 
